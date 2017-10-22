@@ -8,18 +8,17 @@
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
-    $(".js-more").on('click', function() {
-      var id = $(this).data("id");
-      $.get("/products/" + id + "/description", function(data) {
-        $("#description-" + id).text(data);
+    $('.js-more').on('click', function () {
+      var id = $(this).data('id');
+      $.get("/products/" + id + "/description", function (description) {
+        $('#body-' + id).text(description);
       });
-      $.get("/products/" + id + "/inventory", function(data) {
-        if (data === "true") {
-          data = "Available"
+      $.get("/products/" + id + "/inventory", function (inventory) {
+        if (inventory === "true") {
+          $('#inventory-' + id).text("Available")
         } else {
-          data = "Sold Out"
-        }
-        $("#inventory-" + id).text(data);
+          $('#inventory-' + id).text("Sold Out")
+        };
       });
     });
   });
