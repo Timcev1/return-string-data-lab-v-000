@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def inventory
     product = Product.find(params[:id])
-    if product.available?
+    if product.is_available?
       render plain: true
     else
       render plain: false
