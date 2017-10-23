@@ -1,6 +1,5 @@
 <% @products.each do |product| %>
 <h1><%= product.id %>: <%= product.name %> - $<%= product.price %></h1>
-
   <div id="description-<%= product.id %>">
     <%= truncate product.description %>
   </div>
